@@ -54,6 +54,7 @@ func (this *Application) init() {
 
 	this.engine.Use(ginhelper.AllowCrossDomainAll())
 	this.engine.Use(this.auth())
+	this.engine.Use(gin.Recovery())
 
 	runtime.GOMAXPROCS(runtime.NumCPU())
 }
