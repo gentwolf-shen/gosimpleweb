@@ -1,7 +1,6 @@
 package interceptor
 
 import (
-	"github.com/gentwolf-shen/gohelper/logger"
 	"regexp"
 )
 
@@ -35,10 +34,10 @@ func (this *Interceptor) ExcludePathPatterns(paths ...string) *Interceptor {
 
 func (this *Interceptor) IsMustAuthorize(path []byte) bool {
 	bl := this.isMatched(path, this.pathPatterns)
-	logger.Debugf("isMatched [include] %s -> %v", string(path), bl)
+	//logger.Debugf("isMatched [include] %s -> %v", string(path), bl)
 	if bl {
 		tmp := this.isMatched(path, this.excludePathPatterns)
-		logger.Debugf("isMatched [exclude] %s -> %v", string(path), tmp)
+		//logger.Debugf("isMatched [exclude] %s -> %v", string(path), tmp)
 		bl = !tmp
 	}
 

@@ -1,7 +1,6 @@
 package interceptor
 
 import (
-	"github.com/gentwolf-shen/gohelper/logger"
 	"github.com/gin-gonic/gin"
 )
 
@@ -26,7 +25,7 @@ func Valid(c *gin.Context) bool {
 
 	for _, item := range items {
 		if item.Target.IsMustAuthorize(path) {
-			logger.Debugf("isMatched %s -> %v", item.Name, bl)
+			//logger.Debugf("isMatched %s -> %v", item.Name, bl)
 			bl = item.Fun(c)
 			break
 		}

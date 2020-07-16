@@ -117,7 +117,7 @@ func (this *Application) GetWebEngine() *gin.Engine {
 func (this *Application) auth() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		bl := interceptor.Valid(c)
-		logger.Debugf("auth status %s -> %v", c.Request.URL.Path, bl)
+		//logger.Debugf("auth status %s -> %v", c.Request.URL.Path, bl)
 		if !bl {
 			ginhelper.ShowNoAuth(c)
 			c.Abort()
