@@ -65,3 +65,23 @@ func (this *BaseDao) Create(selector string, p map[string]interface{}) int64 {
 	}
 	return id
 }
+
+func (this *BaseDao) UpdateExt(selector string, p map[string]interface{}) int64 {
+	n, err := gomybatis.Update(selector, p)
+	if err != nil {
+		logger.Error(selector)
+		logger.Error(err)
+	}
+
+	return n
+}
+
+func (this *BaseDao) DeleteExt(selector string, p map[string]interface{}) int64 {
+	n, err := gomybatis.Delete(selector, p)
+	if err != nil {
+		logger.Error(selector)
+		logger.Error(err)
+	}
+
+	return n
+}
