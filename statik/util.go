@@ -17,7 +17,7 @@ func initInstance() {
 		var err error
 		instance, err = fs.New()
 		if err != nil {
-			panic(err.Error())
+			logger.Error(err)
 		}
 	}
 }
@@ -42,7 +42,7 @@ func Read(filename string) []byte {
 
 func ReadDir(filename string) []os.FileInfo {
 	initInstance()
-	
+
 	file, err := instance.Open(filename)
 	if err != nil {
 		logger.Error("open file error: " + filename)
