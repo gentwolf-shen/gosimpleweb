@@ -85,3 +85,22 @@ func (this *BaseDao) DeleteExt(selector string, p map[string]interface{}) int64 
 
 	return n
 }
+
+func (this *BaseDao) ListObject(value interface{}, selector string, p map[string]interface{}) error {
+	err := gomybatis.QueryObjects(value, selector, p)
+	if err != nil {
+		logger.Error(selector)
+		logger.Error(err)
+	}
+
+	return err
+}
+
+func (this *BaseDao) RowObject(value interface{}, selector string, p map[string]interface{}) error {
+	err := gomybatis.QueryObject(value, selector, p)
+	if err != nil {
+		logger.Error(selector)
+		logger.Error(err)
+	}
+	return err
+}
